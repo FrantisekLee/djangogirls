@@ -1,84 +1,12 @@
-{% load staticfiles %}
-<html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
-    <meta charset="UTF-8">
-    <title>Django Girls blog</title>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
-<body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h1><a href="">Moj prvy príspevok</a></h1>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h1><a href="">Můj druhý příspěvek</a></h1>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        </div>
-
-        <div class="page-header">
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-
-
-        <div>
-            <H1>TEST POSTS</H1>
-            {{ posts }}
-        </div>
-
-        <div class="post">
-             <p>published: {{ post.published_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-
-
-        <div>
-            <h1>Vypis vsetkych posts</h1>
-            {% for post in posts %}
-                {{ post }}
-            {% endfor %}
-        </div>
-
-        {% for post in posts %}
-        <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-        {% endfor %}
-
-        {% for post in posts %}
-        <div class="post">
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-        {% endfor %}
-
-
-<div class="content container">
-     <div class="row">
-         <div class="col-md-8">
-             {% for post in posts %}
-                 <div class="post">
-                     <div class="date">
-                         {{ post.published_date }}
-                     </div>
-                     <h1><a href="">{{ post.title }}</a></h1>
-                     <p>{{ post.text|linebreaksbr }}</p>
-                 </div>
-             {% endfor %}
+{% for post in posts %}
+     <div class="post">
+         <div class="date">
+             {{ post.published_date }}
          </div>
+         <h1><a href="">{{ post.title }}</a></h1>
+         <p>{{ post.text|linebreaksbr }}</p>
      </div>
-</div>
-
-</body>
-</html>
+{% endfor %}
+{% endblock content %}

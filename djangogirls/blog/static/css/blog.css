@@ -5,6 +5,8 @@ h1 a {
 
 h1 {
     color: #19A1CF;
+    font-size: 20pt;
+    text-shadow: rgba(0,0,255,1) -1px -2px 0.5em;
 }
 
 body {
